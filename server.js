@@ -1,16 +1,18 @@
+require('dotenv').config({ path: '.env' });
 const express = require('express');
 const socketio = require('socket.io');
 const http = require('http');
 const router = require('./router');
 const cors = require('cors');
+const { addUser, getUser, getUsersInRoom, removeUser } = require('./user');
 const PORT = process.env.PORT || 5000;
 const URL = process.env.URL || 'https://optimistic-kepler-270d49.netlify.app';
-const { addUser, getUser, getUsersInRoom, removeUser } = require('./user');
 
 const app = express();
 app.use(cors());
 app.use(router);
 const server = http.createServer(app);
+console.log(process.env.URL);
 
 // app.use(cors());
 const io = socketio(server, {
