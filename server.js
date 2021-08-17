@@ -4,7 +4,7 @@ const http = require('http');
 const router = require('./router');
 const cors = require('cors');
 const PORT = process.env.PORT || 5000;
-const URL = process.env.URL || 'http://localhost:3000';
+const URL = process.env.URL || 'https://optimistic-kepler-270d49.netlify.app';
 const { addUser, getUser, getUsersInRoom, removeUser } = require('./user');
 
 const app = express();
